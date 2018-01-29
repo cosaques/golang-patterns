@@ -4,25 +4,29 @@ import (
 	"fmt"
 )
 
-// Duck is a base class for all the ducks
-// http://blog.bingecoder.net/index.php/2016/06/20/abstract-classes-in-golang/
-type Duck struct {
-	Name string
+type Duck interface {
+	Name() string
+	Display()
+	Quack()
 }
 
-// Display shows the greeting info of the duck
-func (d *Duck) Display() {
-	panic("Abstract method")
-}
+type abstractDuck struct{ Duck }
 
-func (d *Duck) Quack() {
+func (d abstractDuck) Display() {
+	fmt.Printf("Hello my name is %s", d.Name())
+}
+func (d abstractDuck) Quack() {
 	fmt.Println("Kwaaaaa")
 }
 
-type MallardDuck struct {
-	Duck
+type MallardDuck struct{ abstractDuck }
+
+func (d MallardDuck) Name() string {
+	return "MallardDuck"
 }
 
-func (d *MallardDuck) Display() {
-	fmt.Printf("Hello my name is %s", d.Name)
+func NewMallardDuck() *MallardDuck {
+	d := MallardDuck{abstractDuck{}}
+	d.abstractDuck.Duck = d
+	return &d
 }
