@@ -3,6 +3,7 @@ package main
 import "github.com/cosaques/ducks"
 
 func main() {
-	duck := ducks.Duck{"Uttii"}
-	duck.Display()
+	mallard_duck := ducks.MallardDuck{ducks.Duck{"Me"}}
+	mallard_duck.Quack()
+	mallard_duck.Display()
 }
