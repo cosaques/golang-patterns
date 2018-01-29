@@ -8,4 +8,8 @@ func main() {
 	mallardDuck := ducks.NewMallardDuck()
 	mallardDuck.Quack()
 	mallardDuck.Display()
+
+	rubberDuck := ducks.NewRubberDuck()
+	rubberDuck.Quack()
+	rubberDuck.Display()
 }
