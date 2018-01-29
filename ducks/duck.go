@@ -5,41 +5,36 @@ import (
 )
 
 type Duck interface {
-	Name() string
 	Display()
-	Quack()
+	PerformFly()
 }
 
-type abstractDuck struct{ Duck }
+type abstractDuck struct {
+	Duck
+	flyBehavior
+}
 
 func (d abstractDuck) Display() {
-	fmt.Printf("Hello my name is %s \n", d.Name())
+	fmt.Println("I'm a duck !")
 }
-func (d abstractDuck) Quack() {
-	fmt.Println("Kwaaaaa")
+func (d abstractDuck) PerformFly() {
+	d.flyBehavior.fly()
 }
 
 type MallardDuck struct{ abstractDuck }
 
-func (d MallardDuck) Name() string {
-	return "MallardDuck"
-}
 func NewMallardDuck() *MallardDuck {
 	d := MallardDuck{abstractDuck{}}
 	d.abstractDuck.Duck = d
+	d.abstractDuck.flyBehavior = simpleFly{}
 	return &d
 }
 
 type RubberDuck struct{ abstractDuck }
 
-func (d RubberDuck) Quack() {
-	fmt.Println("Tsssss....")
-}
-func (d RubberDuck) Name() string {
-	return "RubberDuck"
-}
 func NewRubberDuck() *RubberDuck {
 	d := RubberDuck{abstractDuck{}}
 	d.abstractDuck.Duck = d
+	d.abstractDuck.flyBehavior = noFly{}
 	return &d
 }

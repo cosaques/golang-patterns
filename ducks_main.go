@@ -6,10 +6,10 @@ import (
 
 func main() {
 	mallardDuck := ducks.NewMallardDuck()
-	mallardDuck.Quack()
 	mallardDuck.Display()
+	mallardDuck.PerformFly()
 
 	rubberDuck := ducks.NewRubberDuck()
-	rubberDuck.Quack()
 	rubberDuck.Display()
+	rubberDuck.PerformFly()
 }
