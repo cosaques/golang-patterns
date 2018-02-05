@@ -1,15 +1,11 @@
 package main
 
-import (
-	"github.com/cosaques/ducks"
-)
-
 func main() {
-	mallardDuck := ducks.NewMallardDuck()
+	mallardDuck := NewMallardDuck()
 	mallardDuck.Display()
 	mallardDuck.PerformFly()
 
-	rubberDuck := ducks.NewRubberDuck()
+	rubberDuck := NewRubberDuck()
 	rubberDuck.Display()
 	rubberDuck.PerformFly()
 }

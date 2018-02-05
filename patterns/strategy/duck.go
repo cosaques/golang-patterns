@@ -1,4 +1,4 @@
-package ducks
+package main
 
 import (
 	"fmt"
