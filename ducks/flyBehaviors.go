@@ -4,18 +4,12 @@ import (
 	"fmt"
 )
 
-type flyBehavior interface {
-	fly()
-}
+type flyBehavior func()
 
-type simpleFly struct{}
-
-func (b simpleFly) fly() {
+var simpleFly = func() {
 	fmt.Println("Flying.... youpi !!!!")
 }
 
-type noFly struct{}
-
-func (b noFly) fly() {
+var noFly = func() {
 	fmt.Println("Sorry.... I cannot fly !!!!")
 }
