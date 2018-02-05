@@ -11,6 +11,15 @@
             "problemMatcher": [
                 "$go"
             ]
+        },
+        {
+            "label": "observer",
+            "type": "shell",
+            "command": "cd observer && go run main.go",
+            "group": "build",
+            "problemMatcher": [
+                "$go"
+            ]
         }
     ]
 }

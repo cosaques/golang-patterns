@@ -1,5 +1,5 @@
 package abstract
 
 type Observer interface {
-	update()
+	Update(temperature float32, humidity float32, pressure float32)
 }

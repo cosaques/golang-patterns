@@ -1,5 +1,5 @@
 package abstract
 
 type DisplayElement interface {
-	display()
+	Display()
 }
