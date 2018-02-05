@@ -10,6 +10,11 @@ type WeatherData struct {
 }
 
 func (w *WeatherData) RegisterObserver(o abstract.Observer) {
+	for _, obs := range w.observers {
+		if obs == o {
+			return
+		}
+	}
 	w.observers = append(w.observers, o)
 }
 
