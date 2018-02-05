@@ -6,7 +6,7 @@
         {
             "label": "strategy",
             "type": "shell",
-            "command": "cd strategy && go run *.go",
+            "command": "cd strategy && go run main.go",
             "group": "build",
             "problemMatcher": [
                 "$go"

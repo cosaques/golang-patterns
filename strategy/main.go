@@ -1,11 +1,13 @@
 package main
 
+import strategy "github.com/cosaques/patterns/strategy/src"
+
 func main() {
-	mallardDuck := NewMallardDuck()
+	mallardDuck := strategy.NewMallardDuck()
 	mallardDuck.Display()
 	mallardDuck.PerformFly()
 
-	rubberDuck := NewRubberDuck()
+	rubberDuck := strategy.NewRubberDuck()
 	rubberDuck.Display()
 	rubberDuck.PerformFly()
 }
