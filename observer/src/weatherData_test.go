@@ -3,22 +3,25 @@ package observer
 import (
 	"testing"
 
+	"github.com/cosaques/patterns/observer/src/abstract"
+
 	"github.com/stretchr/testify/assert"
 )
 
 type observerMock struct {
-	temperature float32
-	humidity    float32
-	pressure    float32
+	isUpdated bool
+	subject   abstract.Subject
 }
 
-func (o *observerMock) Update(temperature float32, humidity float32, pressure float32) {
-	o.humidity = humidity
-	o.temperature = temperature
-	o.pressure = pressure
+func (o *observerMock) Update() {
+	o.isUpdated = true
 }
 
-func TestRegisterObserver_ShouldBeUpdatedWithCorrectParameters(t *testing.T) {
+func (o *observerMock) SetSubject(s abstract.Subject) {
+	o.subject = s
+}
+
+func TestRegisterObserver_ShouldBeUpdatedAfterBeRegistered(t *testing.T) {
 	weatherData := new(WeatherData)
 	observer := new(observerMock)
 
@@ -29,9 +32,7 @@ func TestRegisterObserver_ShouldBeUpdatedWithCorrectParameters(t *testing.T) {
 	pressure := float32(3)
 	weatherData.SetMeasurements(temperature, humidity, pressure)
 
-	assert.Equal(t, temperature, observer.temperature, "Temperature should be updated")
-	assert.Equal(t, humidity, observer.humidity, "Humidity should be updated")
-	assert.Equal(t, pressure, observer.pressure, "Pressure should be updated")
+	assert.True(t, observer.isUpdated, "Observer should be updated if added")
 }
 
 func TestRemoveObserver_ShouldNotBeUpdatedAfterBeRomoved(t *testing.T) {
@@ -46,7 +47,5 @@ func TestRemoveObserver_ShouldNotBeUpdatedAfterBeRomoved(t *testing.T) {
 	pressure := float32(3)
 	weatherData.SetMeasurements(temperature, humidity, pressure)
 
-	assert.NotEqual(t, temperature, observer.temperature, "Temperature should not be updated")
-	assert.NotEqual(t, humidity, observer.humidity, "Humidity should not be updated")
-	assert.NotEqual(t, pressure, observer.pressure, "Pressure should not be updated")
+	assert.False(t, observer.isUpdated, "Observer should not be updated if removed")
 }
