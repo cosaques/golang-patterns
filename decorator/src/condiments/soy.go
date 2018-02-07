@@ -4,13 +4,9 @@ import (
 	"github.com/cosaques/patterns/decorator/src"
 )
 
-type soy struct {
-	condiment
-}
-
-func AddSoy(b decorator.Beverage) *soy {
-	return &soy{condiment{
+func AddSoy(b decorator.Beverage) decorator.Beverage {
+	return &condiment{
 		beverage:    b,
 		cost:        15,
-		description: "Soy"}}
+		description: "Soy"}
 }
