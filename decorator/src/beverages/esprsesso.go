@@ -4,7 +4,7 @@ type Espresso struct {
 }
 
 func (e *Espresso) GetDescription() string {
-	return "Espresso"
+	return "Hot Espresso"
 }
 
 func (e *Espresso) Cost() int64 {
