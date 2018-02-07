@@ -20,6 +20,15 @@
             "problemMatcher": [
                 "$go"
             ]
+        },
+        {
+            "label": "decorator",
+            "type": "shell",
+            "command": "cd decorator && go run main.go",
+            "group": "build",
+            "problemMatcher": [
+                "$go"
+            ]
         }
     ]
 }
