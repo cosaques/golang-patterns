@@ -1,15 +1,16 @@
 package condiments
 
-import decorator "github.com/cosaques/patterns/decorator/src"
+import (
+	"github.com/cosaques/patterns/decorator/src"
+)
 
-type Soy struct {
-	Beverage decorator.Beverage
+type soy struct {
+	condiment
 }
 
-func (c *Soy) Cost() int64 {
-	return c.Beverage.Cost() + 15
-}
-
-func (c *Soy) GetDescription() string {
-	return c.Beverage.GetDescription() + ", Soy"
+func AddSoy(b decorator.Beverage) *soy {
+	return &soy{condiment{
+		beverage:    b,
+		cost:        15,
+		description: "Soy"}}
 }

@@ -2,14 +2,13 @@ package condiments
 
 import decorator "github.com/cosaques/patterns/decorator/src"
 
-type Mocha struct {
-	Beverage decorator.Beverage
+type mocha struct {
+	condiment
 }
 
-func (c *Mocha) Cost() int64 {
-	return c.Beverage.Cost() + 20
-}
-
-func (c *Mocha) GetDescription() string {
-	return c.Beverage.GetDescription() + ", Mocha"
+func AddMocha(b decorator.Beverage) *mocha {
+	return &mocha{condiment{
+		beverage:    b,
+		cost:        15,
+		description: "Mocha"}}
 }
