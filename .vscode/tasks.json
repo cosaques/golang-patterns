@@ -31,9 +31,9 @@
             ]
         },
         {
-            "label": "fabric",
+            "label": "factory",
             "type": "shell",
-            "command": "cd fabric && go run main.go",
+            "command": "cd factory && go run main.go",
             "group": "build",
             "problemMatcher": [
                 "$go"
