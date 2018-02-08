@@ -29,6 +29,15 @@
             "problemMatcher": [
                 "$go"
             ]
+        },
+        {
+            "label": "fabric",
+            "type": "shell",
+            "command": "cd fabric && go run main.go",
+            "group": "build",
+            "problemMatcher": [
+                "$go"
+            ]
         }
     ]
 }
