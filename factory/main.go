@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	store := factory.NewPizzaStore()
+	store := factory.NewNYPizzaStore()
 	store.OrderPizza("cheese")
 	store.OrderPizza("pepper")
 }
