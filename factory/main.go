@@ -1,11 +1,11 @@
 package main
 
-import (
-	factory "github.com/cosaques/patterns/factory/src"
-)
+import "github.com/cosaques/patterns/factory/src/pizzaStores"
 
 func main() {
-	store := factory.NewNYPizzaStore()
-	store.OrderPizza("cheese")
-	store.OrderPizza("pepper")
+	store1 := pizzaStores.NewNyPizzaStore()
+	store1.OrderPizza("cheese")
+
+	store2 := pizzaStores.NewChicagoPizzaStore()
+	store2.OrderPizza("clam")
 }
