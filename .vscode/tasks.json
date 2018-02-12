@@ -38,6 +38,15 @@
             "problemMatcher": [
                 "$go"
             ]
+        },
+        {
+            "label": "singleton",
+            "type": "shell",
+            "command": "cd singleton && go run main.go",
+            "group": "build",
+            "problemMatcher": [
+                "$go"
+            ]
         }
     ]
 }
