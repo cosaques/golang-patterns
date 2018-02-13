@@ -18,6 +18,7 @@ func (b *chocolateBoiler) Fill() {
 func (b *chocolateBoiler) Drain() {
 	if !b.empty && b.boiled {
 		b.empty = true
+		b.boiled = false
 		fmt.Println("Draining...")
 	}
 }
