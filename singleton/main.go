@@ -1,9 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"github.com/cosaques/patterns/singleton/src"
 )
 
 func main() {
-	fmt.Println("Hello")
+	boiler := chocolate.GetChocolateBoiler()
+	boiler.Fill()
+	boiler.Boil()
+	boiler.Drain()
 }

@@ -15,6 +15,13 @@ func (b *chocolateBoiler) Fill() {
 	}
 }
 
+func (b *chocolateBoiler) Boil() {
+	if !b.empty && !b.boiled {
+		b.boiled = true
+		fmt.Println("Boiling...")
+	}
+}
+
 func (b *chocolateBoiler) Drain() {
 	if !b.empty && b.boiled {
 		b.empty = true
@@ -23,9 +30,12 @@ func (b *chocolateBoiler) Drain() {
 	}
 }
 
-func (b *chocolateBoiler) Boil() {
-	if !b.empty && !b.boiled {
-		b.boiled = true
-		fmt.Println("Boiling...")
+// Singleton implementation
+var boiler *chocolateBoiler
+
+func GetChocolateBoiler() *chocolateBoiler {
+	if boiler == nil {
+		boiler = &chocolateBoiler{empty: true, boiled: false}
 	}
+	return boiler
 }
