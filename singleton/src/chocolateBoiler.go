@@ -2,6 +2,7 @@ package chocolate
 
 import (
 	"fmt"
+	"sync"
 )
 
 type chocolateBoiler struct {
@@ -34,15 +35,15 @@ func (b *chocolateBoiler) Drain() {
 
 // Singleton implementation
 var boiler *chocolateBoiler
-var ch = make(chan bool, 1)
+var mux sync.Mutex
 
 func GetChocolateBoiler() *chocolateBoiler {
 	if boiler == nil {
-		ch <- true
+		mux.Lock()
 		if boiler == nil {
 			boiler = &chocolateBoiler{empty: true, boiled: false}
 		}
-		<-ch
+		mux.Unlock()
 	}
 	return boiler
 }
