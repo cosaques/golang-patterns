@@ -2,7 +2,6 @@ package chocolate
 
 import (
 	"fmt"
-	"time"
 )
 
 type chocolateBoiler struct {
@@ -35,11 +34,15 @@ func (b *chocolateBoiler) Drain() {
 
 // Singleton implementation
 var boiler *chocolateBoiler
+var ch = make(chan bool, 1)
 
 func GetChocolateBoiler() *chocolateBoiler {
 	if boiler == nil {
-		time.Sleep(time.Second)
-		boiler = &chocolateBoiler{empty: true, boiled: false}
+		ch <- true
+		if boiler == nil {
+			boiler = &chocolateBoiler{empty: true, boiled: false}
+		}
+		<-ch
 	}
 	return boiler
 }
