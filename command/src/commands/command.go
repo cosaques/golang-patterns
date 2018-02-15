@@ -1,5 +1,5 @@
-package command
+package commands
 
 type Command interface {
-	execute()
+	Execute()
 }

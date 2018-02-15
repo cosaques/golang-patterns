@@ -1,9 +1,13 @@
 package main
 
 import (
-	"fmt"
+	"github.com/cosaques/patterns/command/src/commands"
+	"github.com/cosaques/patterns/command/src/remotes"
 )
 
 func main() {
-	fmt.Println("hello")
+	var rc = new(remotes.SimpleControl)
+	var lightOn = new(commands.LightOn)
+	rc.SetCommand(lightOn)
+	rc.ButtonPressed()
 }
