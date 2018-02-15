@@ -1,6 +1,9 @@
 package chocolate
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type chocolateBoiler struct {
 	empty  bool
@@ -35,6 +38,7 @@ var boiler *chocolateBoiler
 
 func GetChocolateBoiler() *chocolateBoiler {
 	if boiler == nil {
+		time.Sleep(time.Second)
 		boiler = &chocolateBoiler{empty: true, boiled: false}
 	}
 	return boiler
