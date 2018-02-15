@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-type GarageDoor struct{}
+type GarageDoorOpen struct{}
 
-func (c *GarageDoor) Execute() {
+func (c *GarageDoorOpen) Execute() {
 	fmt.Println("Garage door is opened")
 }
