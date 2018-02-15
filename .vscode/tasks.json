@@ -1,52 +1,49 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "strategy",
-            "type": "shell",
-            "command": "cd strategy && go run main.go",
-            "group": "build",
-            "problemMatcher": [
-                "$go"
-            ]
-        },
-        {
-            "label": "observer",
-            "type": "shell",
-            "command": "cd observer && go run main.go",
-            "group": "build",
-            "problemMatcher": [
-                "$go"
-            ]
-        },
-        {
-            "label": "decorator",
-            "type": "shell",
-            "command": "cd decorator && go run main.go",
-            "group": "build",
-            "problemMatcher": [
-                "$go"
-            ]
-        },
-        {
-            "label": "factory",
-            "type": "shell",
-            "command": "cd factory && go run main.go",
-            "group": "build",
-            "problemMatcher": [
-                "$go"
-            ]
-        },
-        {
-            "label": "singleton",
-            "type": "shell",
-            "command": "cd singleton && go run main.go",
-            "group": "build",
-            "problemMatcher": [
-                "$go"
-            ]
-        }
-    ]
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "strategy",
+      "type": "shell",
+      "command": "cd strategy && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "observer",
+      "type": "shell",
+      "command": "cd observer && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "decorator",
+      "type": "shell",
+      "command": "cd decorator && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "factory",
+      "type": "shell",
+      "command": "cd factory && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "singleton",
+      "type": "shell",
+      "command": "cd singleton && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "command",
+      "type": "shell",
+      "command": "cd command && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    }
+  ]
 }
