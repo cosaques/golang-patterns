@@ -5,9 +5,7 @@ import (
 )
 
 type beverage interface {
-	boilWater()
 	brew()
-	pourInCup()
 	addCondiments()
 }
 
