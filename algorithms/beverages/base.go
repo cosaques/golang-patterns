@@ -7,7 +7,7 @@ import (
 type beverage interface {
 	brew()
 	addCondiments()
-	hook()
+	customerWantsCondiments() bool
 }
 
 type abstractBeverage struct {
@@ -18,8 +18,9 @@ func (b *abstractBeverage) PrepareRecipe() {
 	b.boilWater()
 	b.brew()
 	b.pourInCup()
-	b.addCondiments()
-	b.beverage.hook()
+	if b.beverage.customerWantsCondiments() {
+		b.addCondiments()
+	}
 }
 
 func (b *abstractBeverage) boilWater() {
@@ -30,5 +31,6 @@ func (b *abstractBeverage) pourInCup() {
 	fmt.Println("Pouring in cups...")
 }
 
-func (b *abstractBeverage) hook() {
+func (b *abstractBeverage) customerWantsCondiments() bool {
+	return true
 }
