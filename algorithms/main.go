@@ -1,9 +1,11 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/cosaques/patterns/algorithms/beverages"
 
 func main() {
-	fmt.Println("Hello world")
+	tea := beverages.NewTea()
+	tea.PrepareRecipe()
+
+	coffee := beverages.NewCoffee()
+	coffee.PrepareRecipe()
 }
