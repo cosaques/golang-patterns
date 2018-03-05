@@ -16,6 +16,10 @@ func (b *coffee) addCondiments() {
 	fmt.Println("Adding milk and sugar...")
 }
 
+func (b *coffee) hook() {
+	fmt.Println("HOOOK !!!! ...")
+}
+
 func NewCoffee() *coffee {
 	c := &coffee{}
 	c.abstractBeverage = &abstractBeverage{c}
