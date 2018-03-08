@@ -11,15 +11,15 @@ type beverage interface {
 }
 
 type abstractBeverage struct {
-	beverage
+	concreteBeverage beverage
 }
 
 func (b *abstractBeverage) PrepareRecipe() {
 	b.boilWater()
-	b.brew()
+	b.concreteBeverage.brew()
 	b.pourInCup()
-	if b.beverage.customerWantsCondiments() {
-		b.addCondiments()
+	if b.concreteBeverage.customerWantsCondiments() {
+		b.concreteBeverage.addCondiments()
 	}
 }
 
@@ -31,6 +31,7 @@ func (b *abstractBeverage) pourInCup() {
 	fmt.Println("Pouring in cups...")
 }
 
+// Hook method
 func (b *abstractBeverage) customerWantsCondiments() bool {
 	return true
 }
