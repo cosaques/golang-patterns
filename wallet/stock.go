@@ -1,5 +1,9 @@
 package wallet
 
+import (
+	"errors"
+)
+
 type stock struct {
 	amount   float64
 	currency currency
@@ -11,9 +15,12 @@ func AddStock(s1 stock, s2 stock) (stock stock, err error) {
 		return
 	}
 
+	err = CurrencyMismatchError
 	return
 }
 
 func NewStock(amount float64, currency currency) stock {
 	return stock{amount, currency}
 }
+
+var CurrencyMismatchError = errors.New("Currency mismatch")
