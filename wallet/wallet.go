@@ -24,7 +24,6 @@ func (w *wallet) getTotalValue(toCurrency currency, rate Rate) stock {
 	return total
 }
 
-// ternaire
 func computeRate(fromCurrency currency, toCurrency currency, rate Rate) float64 {
 	if fromCurrency != toCurrency {
 		return rate.GetRate(fromCurrency, toCurrency)
