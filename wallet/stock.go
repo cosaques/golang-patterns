@@ -7,7 +7,7 @@ type stock struct {
 
 func AddStock(s1 stock, s2 stock) (stock stock, err error) {
 	if s1.currency == s2.currency {
-		stock = NewStock(20, EUR)
+		stock = NewStock(s1.amount+s2.amount, s1.currency)
 		return
 	}
 
