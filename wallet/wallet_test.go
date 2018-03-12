@@ -8,31 +8,31 @@ import (
 
 func TestGetValue_ShouldReturnZeroOnEmptyWallet(t *testing.T) {
 	w := NewWallet()
-	assert.Equal(t, 0.0, w.GetValue("EUR", nil))
+	assert.Equal(t, 0.0, w.GetValue(EUR, nil))
 }
 
 func TestGetValue_ShouldReturn10EurIfWalletContains10Eur(t *testing.T) {
 	w := NewWallet()
-	w.Add("EUR", 10)
-	assert.Equal(t, 10.0, w.GetValue("EUR", nil))
+	w.Add(EUR, 10)
+	assert.Equal(t, 10.0, w.GetValue(EUR, nil))
 }
 
 func TestGetValue_ShouldReturn10UsdIfWalletContains10Usd(t *testing.T) {
 	w := NewWallet()
-	w.Add("USD", 10)
-	assert.Equal(t, 10.0, w.GetValue("USD", nil))
+	w.Add(USD, 10)
+	assert.Equal(t, 10.0, w.GetValue(USD, nil))
 }
 
 type MockRate struct{}
 
-func (r *MockRate) GetRate(fromCurrency string, toCurrency string) float64 {
+func (r *MockRate) GetRate(fromCurrency currency, toCurrency currency) float64 {
 	return 1.5
 }
 
 func TestGetValue_ShouldReturnTotalValueIfWalletContains10UsdAnd20Eur(t *testing.T) {
 	w := NewWallet()
-	w.Add("EUR", 20)
-	w.Add("USD", 10)
+	w.Add(EUR, 20)
+	w.Add(USD, 10)
 
-	assert.Equal(t, 40.0, w.GetValue("USD", new(MockRate)))
+	assert.Equal(t, 40.0, w.GetValue(USD, new(MockRate)))
 }

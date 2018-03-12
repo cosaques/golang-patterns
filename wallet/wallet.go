@@ -1,21 +1,21 @@
 package wallet
 
 type wallet struct {
-	amounts map[string]float64
+	amounts map[currency]float64
 }
 
-func (w *wallet) GetValue(currency string, rate Rate) float64 {
+func (w *wallet) GetValue(currency currency, rate Rate) float64 {
 	if rate == nil {
 		return w.amounts[currency]
 	}
 	return w.getTotalValue(currency, rate)
 }
 
-func (w *wallet) Add(currency string, amount float64) {
+func (w *wallet) Add(currency currency, amount float64) {
 	w.amounts[currency] += amount
 }
 
-func (w *wallet) getTotalValue(toCurrency string, rate Rate) float64 {
+func (w *wallet) getTotalValue(toCurrency currency, rate Rate) float64 {
 	total := 0.0
 	for currency, value := range w.amounts {
 		total += value * computeRate(currency, toCurrency, rate)
@@ -24,7 +24,7 @@ func (w *wallet) getTotalValue(toCurrency string, rate Rate) float64 {
 }
 
 // ternaire
-func computeRate(fromCurrency string, toCurrency string, rate Rate) float64 {
+func computeRate(fromCurrency currency, toCurrency currency, rate Rate) float64 {
 	if fromCurrency != toCurrency {
 		return rate.GetRate(fromCurrency, toCurrency)
 	}
@@ -32,5 +32,5 @@ func computeRate(fromCurrency string, toCurrency string, rate Rate) float64 {
 }
 
 func NewWallet() *wallet {
-	return &wallet{amounts: make(map[string]float64)}
+	return &wallet{amounts: make(map[currency]float64)}
 }

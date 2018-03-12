@@ -1,5 +1,5 @@
 package wallet
 
 type Rate interface {
-	GetRate(fromCurrency string, toCurrency string) float64
+	GetRate(fromCurrency currency, toCurrency currency) float64
 }
