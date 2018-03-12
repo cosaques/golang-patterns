@@ -1,24 +1,25 @@
 package wallet
 
 type wallet struct {
-	amounts map[currency]float64
+	amounts map[currency]stock
 }
 
-func (w *wallet) GetValue(currency currency, rate Rate) float64 {
+func (w *wallet) GetValue(currency currency, rate Rate) stock {
 	if rate == nil {
-		return w.amounts[currency]
+		return NewStock(w.amounts[currency].amount, currency)
 	}
 	return w.getTotalValue(currency, rate)
 }
 
-func (w *wallet) Add(currency currency, amount float64) {
-	w.amounts[currency] += amount
+func (w *wallet) Add(amount stock) {
+	w.amounts[amount.currency] = amount
 }
 
-func (w *wallet) getTotalValue(toCurrency currency, rate Rate) float64 {
-	total := 0.0
+func (w *wallet) getTotalValue(toCurrency currency, rate Rate) stock {
+	total := NewStock(0, toCurrency)
 	for currency, value := range w.amounts {
-		total += value * computeRate(currency, toCurrency, rate)
+		tmpStock := NewStock(value.amount*computeRate(currency, toCurrency, rate), toCurrency)
+		total, _ = AddStock(total, tmpStock)
 	}
 	return total
 }
@@ -32,5 +33,5 @@ func computeRate(fromCurrency currency, toCurrency currency, rate Rate) float64 
 }
 
 func NewWallet() *wallet {
-	return &wallet{amounts: make(map[currency]float64)}
+	return &wallet{amounts: make(map[currency]stock)}
 }
