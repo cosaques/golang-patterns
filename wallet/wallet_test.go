@@ -1,4 +1,4 @@
-package main
+package wallet
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetValue_ShouldReturnZeroOnEmptyWallet(t *testing.T) {
-	w := &Wallet{}
+	w := NewWallet()
 	assert.Equal(t, 0.0, w.GetValue("EUR"))
 }
 

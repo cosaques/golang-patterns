@@ -1,17 +1,17 @@
-package main
+package wallet
 
-type Wallet struct {
+type wallet struct {
 	amounts map[string]float64
 }
 
-func (w *Wallet) GetValue(currency string) float64 {
+func (w *wallet) GetValue(currency string) float64 {
 	return w.amounts[currency]
 }
 
-func (w *Wallet) Add(currency string, amount float64) {
+func (w *wallet) Add(currency string, amount float64) {
 	w.amounts[currency] += amount
 }
 
-func NewWallet() *Wallet {
-	return &Wallet{amounts: make(map[string]float64)}
+func NewWallet() *wallet {
+	return &wallet{amounts: make(map[string]float64)}
 }
