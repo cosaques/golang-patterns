@@ -51,6 +51,13 @@
       "command": "cd algorithms && go run main.go",
       "group": "build",
       "problemMatcher": ["$go"]
+    },
+    {
+      "label": "iterator",
+      "type": "shell",
+      "command": "cd iterator && go run main.go",
+      "group": "build",
+      "problemMatcher": ["$go"]
     }
   ]
 }
