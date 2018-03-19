@@ -4,6 +4,13 @@ type dinerMenu struct {
 	items []*MenuItem
 }
 
+type dinerMenuIterator struct {
+	items    []interface{}
+	position int
+}
+
+// dinerMenu methods
+
 func (m *dinerMenu) GetItems() []*MenuItem {
 	return m.items
 }
@@ -34,10 +41,7 @@ func NewDinerMenu() *dinerMenu {
 	return result
 }
 
-type dinerMenuIterator struct {
-	items    []interface{}
-	position int
-}
+// dinerMenuIterator methods
 
 func (i *dinerMenuIterator) Next() interface{} {
 	next := i.items[i.position]
