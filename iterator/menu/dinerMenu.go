@@ -33,3 +33,18 @@ func NewDinerMenu() *dinerMenu {
 
 	return result
 }
+
+type dinerMenuIterator struct {
+	items    []interface{}
+	position int
+}
+
+func (i *dinerMenuIterator) Next() interface{} {
+	next := i.items[i.position]
+	i.position += 1
+	return next
+}
+
+func (i *dinerMenuIterator) HasNext() bool {
+	return len(i.items)-1 >= i.position
+}
