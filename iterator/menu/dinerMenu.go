@@ -52,3 +52,7 @@ func (i *dinerMenuIterator) Next() interface{} {
 func (i *dinerMenuIterator) HasNext() bool {
 	return len(i.items)-1 >= i.position
 }
+
+func newDinerMenuIterator(i []interface{}) *dinerMenuIterator {
+	return &dinerMenuIterator{items: i}
+}

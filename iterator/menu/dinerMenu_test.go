@@ -12,7 +12,7 @@ func TestNewDinerMenu_ShouldReturnNotEmtyMenu(t *testing.T) {
 
 func TestDinerMenuIterator_ShouldReturnCorrectElements(t *testing.T) {
 	list := []interface{}{1, 2}
-	iterator := &dinerMenuIterator{items: list}
+	iterator := newDinerMenuIterator(list)
 
 	assert.True(t, iterator.HasNext())
 	assert.Equal(t, iterator.Next(), 1)
