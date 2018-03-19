@@ -4,6 +4,13 @@ type pancakeHouse struct {
 	items map[string]*MenuItem
 }
 
+type pancakeHouseIterator struct {
+	items    []interface{}
+	position int
+}
+
+// pancakeHouse methods
+
 func (m *pancakeHouse) GetItems() map[string]*MenuItem {
 	return m.items
 }
@@ -25,6 +32,27 @@ func NewPancakeHouse() *pancakeHouse {
 		"Pancakes made with fresh blueberries",
 		true,
 		7.99)
+
+	return result
+}
+
+// pancakeHouseIterator methods
+
+func (i *pancakeHouseIterator) Next() interface{} {
+	next := i.items[i.position]
+	i.position += 1
+	return next
+}
+
+func (i *pancakeHouseIterator) HasNext() bool {
+	return len(i.items)-1 >= i.position
+}
+
+func newPancakeHouseIterator(m map[string]interface{}) *pancakeHouseIterator {
+	result := &pancakeHouseIterator{}
+	for _, v := range m {
+		result.items = append(result.items, v)
+	}
 
 	return result
 }
