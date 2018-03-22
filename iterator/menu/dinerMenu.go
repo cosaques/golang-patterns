@@ -28,7 +28,6 @@ func (m *dinerMenu) addItem(name string, description string, vegeterian bool, pr
 
 func NewDinerMenu() *dinerMenu {
 	result := new(dinerMenu)
-	result.items = make([]*MenuItem, 6)
 
 	result.addItem("Vegeterian BLT",
 		"Soja Becon with lettuce & tomato",
