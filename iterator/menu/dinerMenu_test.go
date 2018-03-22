@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewDinerMenu_ShouldReturnNotEmtyMenu(t *testing.T) {
+func TestNewDinerMenu_ShouldNotBeEmpty(t *testing.T) {
 
 	assert.NotNil(t, NewDinerMenu().CreateIterator().Next())
 }

@@ -10,7 +10,7 @@ func TestNewPancakeHouse_ShouldReturnNotEmptyMenu(t *testing.T) {
 	assert.True(t, len(NewPancakeHouse().GetItems()) > 0)
 }
 
-func TestNewPancakeHouseIterator_ShouldReturnCorrectElements(t *testing.T) {
+func TestNewPancakeHouseIterator_ShouldNotBeEmpty(t *testing.T) {
 	m := map[string]interface{}{
 		"a": 1,
 		"b": 2,
