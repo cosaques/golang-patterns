@@ -7,7 +7,8 @@ import (
 )
 
 func TestNewDinerMenu_ShouldReturnNotEmtyMenu(t *testing.T) {
-	assert.True(t, len(NewDinerMenu().GetItems()) > 0)
+
+	assert.NotNil(t, NewDinerMenu().CreateIterator().Next())
 }
 
 func TestDinerMenuIterator_ShouldReturnCorrectElements(t *testing.T) {
