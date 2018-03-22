@@ -1,5 +1,7 @@
 package menu
 
+import "github.com/cosaques/patterns/iterator/iterator"
+
 type dinerMenu struct {
 	items []*MenuItem
 }
@@ -11,8 +13,13 @@ type dinerMenuIterator struct {
 
 // dinerMenu methods
 
-func (m *dinerMenu) GetItems() []*MenuItem {
-	return m.items
+func (m *dinerMenu) CreateIterator() iterator.Iterator {
+	var menuItems []interface{}
+	for _, i := range m.items {
+		menuItems = append(menuItems, i)
+	}
+
+	return newDinerMenuIterator(menuItems)
 }
 
 func (m *dinerMenu) addItem(name string, description string, vegeterian bool, price float32) {
