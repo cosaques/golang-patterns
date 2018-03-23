@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
+import "github.com/cosaques/patterns/iterator/restaurant"
 
 func main() {
-	fmt.Println("hello")
+	waitress := restaurant.NewWaitress(restaurant.NewPancakeMenu(), restaurant.NewDinerMenu())
+	waitress.PrintMenu()
 }
