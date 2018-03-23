@@ -1,4 +1,4 @@
-package menu
+package restaurant
 
 type MenuItem struct {
 	name        string

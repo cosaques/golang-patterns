@@ -1,4 +1,4 @@
-package menu
+package restaurant
 
 import (
 	"github.com/cosaques/patterns/iterator/iterator"
