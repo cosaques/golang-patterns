@@ -1,5 +1,9 @@
 package menu
 
+import (
+	"github.com/cosaques/patterns/iterator/iterator"
+)
+
 type pancakeHouse struct {
 	items map[string]*MenuItem
 }
@@ -13,6 +17,14 @@ type pancakeHouseIterator struct {
 
 func (m *pancakeHouse) GetItems() map[string]*MenuItem {
 	return m.items
+}
+
+func (m *pancakeHouse) CreateIterator() iterator.Iterator {
+	menuItems := make(map[string]interface{})
+	for k, v := range m.items {
+		menuItems[k] = v
+	}
+	return newPancakeHouseIterator(menuItems)
 }
 
 func (m *pancakeHouse) addItem(name string, description string, vegeterian bool, price float32) {

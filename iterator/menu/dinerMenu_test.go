@@ -7,7 +7,6 @@ import (
 )
 
 func TestNewDinerMenu_ShouldNotBeEmpty(t *testing.T) {
-
 	assert.NotNil(t, NewDinerMenu().CreateIterator().Next())
 }
 

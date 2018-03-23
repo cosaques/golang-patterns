@@ -6,11 +6,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewPancakeHouse_ShouldReturnNotEmptyMenu(t *testing.T) {
-	assert.True(t, len(NewPancakeHouse().GetItems()) > 0)
+func TestNewPancakeHouse_ShouldNotBeEmpty(t *testing.T) {
+	assert.NotNil(t, NewPancakeHouse().CreateIterator().Next())
 }
 
-func TestNewPancakeHouseIterator_ShouldNotBeEmpty(t *testing.T) {
+func TestNewPancakeHouseIterator_ShouldReturnCorrectElements(t *testing.T) {
 	m := map[string]interface{}{
 		"a": 1,
 		"b": 2,
