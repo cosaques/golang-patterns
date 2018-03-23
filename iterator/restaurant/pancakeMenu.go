@@ -4,31 +4,31 @@ import (
 	"github.com/cosaques/patterns/iterator/iterator"
 )
 
-type pancakeHouse struct {
+type pancakeMenu struct {
 	items map[string]*MenuItem
 }
 
-type pancakeHouseIterator struct {
+type pancakeMenuIterator struct {
 	items    []interface{}
 	position int
 }
 
-// pancakeHouse methods
+// pancakeMenu methods
 
-func (m *pancakeHouse) CreateIterator() iterator.Iterator {
+func (m *pancakeMenu) CreateIterator() iterator.Iterator {
 	menuItems := make(map[string]interface{})
 	for k, v := range m.items {
 		menuItems[k] = v
 	}
-	return newPancakeHouseIterator(menuItems)
+	return newPancakeMenuIterator(menuItems)
 }
 
-func (m *pancakeHouse) addItem(name string, description string, vegeterian bool, price float32) {
+func (m *pancakeMenu) addItem(name string, description string, vegeterian bool, price float32) {
 	m.items[name] = &MenuItem{name, description, vegeterian, price}
 }
 
-func NewPancakeHouse() *pancakeHouse {
-	result := new(pancakeHouse)
+func NewPancakeMenu() *pancakeMenu {
+	result := new(pancakeMenu)
 	result.items = make(map[string]*MenuItem)
 
 	result.addItem("K&B's pancakes breakfast",
@@ -44,20 +44,20 @@ func NewPancakeHouse() *pancakeHouse {
 	return result
 }
 
-// pancakeHouseIterator methods
+// pancakeMenuIterator methods
 
-func (i *pancakeHouseIterator) Next() interface{} {
+func (i *pancakeMenuIterator) Next() interface{} {
 	next := i.items[i.position]
 	i.position += 1
 	return next
 }
 
-func (i *pancakeHouseIterator) HasNext() bool {
+func (i *pancakeMenuIterator) HasNext() bool {
 	return len(i.items)-1 >= i.position
 }
 
-func newPancakeHouseIterator(m map[string]interface{}) *pancakeHouseIterator {
-	result := &pancakeHouseIterator{}
+func newPancakeMenuIterator(m map[string]interface{}) *pancakeMenuIterator {
+	result := &pancakeMenuIterator{}
 	for _, v := range m {
 		result.items = append(result.items, v)
 	}
