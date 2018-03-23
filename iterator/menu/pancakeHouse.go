@@ -15,10 +15,6 @@ type pancakeHouseIterator struct {
 
 // pancakeHouse methods
 
-func (m *pancakeHouse) GetItems() map[string]*MenuItem {
-	return m.items
-}
-
 func (m *pancakeHouse) CreateIterator() iterator.Iterator {
 	menuItems := make(map[string]interface{})
 	for k, v := range m.items {
