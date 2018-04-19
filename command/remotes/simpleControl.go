@@ -1,6 +1,6 @@
 package remotes
 
-import "github.com/cosaques/patterns/command/src/commands"
+import "github.com/cosaques/patterns/command/commands"
 
 type SimpleControl struct {
 	slot commands.Command

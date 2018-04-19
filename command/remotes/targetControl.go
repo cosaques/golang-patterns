@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/cosaques/patterns/command/src/commands"
+	"github.com/cosaques/patterns/command/commands"
 )
 
 const slotCount = 7

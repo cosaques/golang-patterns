@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/cosaques/patterns/command/src/commands"
-	"github.com/cosaques/patterns/command/src/remotes"
+	"github.com/cosaques/patterns/command/commands"
+	"github.com/cosaques/patterns/command/remotes"
 )
 
 func main() {
