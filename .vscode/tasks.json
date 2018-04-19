@@ -46,9 +46,9 @@
       "problemMatcher": ["$go"]
     },
     {
-      "label": "algorithms",
+      "label": "template-method",
       "type": "shell",
-      "command": "cd algorithms && go run main.go",
+      "command": "cd template-method && go run main.go",
       "group": "build",
       "problemMatcher": ["$go"]
     },

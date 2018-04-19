@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/cosaques/patterns/algorithms/beverages"
+	"github.com/cosaques/patterns/template-method/beverages"
 )
 
 func main() {
