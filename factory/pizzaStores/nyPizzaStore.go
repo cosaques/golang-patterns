@@ -9,7 +9,7 @@ type nyPizzaStore struct {
 	*pizzaStoreBase
 }
 
-func (s *nyPizzaStore) CreatePizza(name string) pizzas.Pizza {
+func (s *nyPizzaStore) createPizza(name string) pizzas.Pizza {
 	var pizza pizzas.Pizza
 	ingredientFactory := new(factories.NyPizzaIngredientFactory)
 

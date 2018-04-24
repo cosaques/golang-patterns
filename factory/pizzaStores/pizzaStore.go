@@ -4,7 +4,7 @@ import "github.com/cosaques/patterns/factory/pizzas"
 
 type pizzaStore interface {
 	OrderPizza(name string)
-	CreatePizza(name string) pizzas.Pizza
+	createPizza(name string) pizzas.Pizza
 }
 
 type pizzaStoreBase struct {
@@ -12,7 +12,7 @@ type pizzaStoreBase struct {
 }
 
 func (s *pizzaStoreBase) OrderPizza(name string) {
-	pizza := s.store.CreatePizza(name)
+	pizza := s.store.createPizza(name)
 
 	pizza.Prepare()
 	pizza.Bake()
