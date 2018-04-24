@@ -3,7 +3,7 @@ package pizzas
 import (
 	"fmt"
 
-	"github.com/cosaques/patterns/factory/src/factories"
+	"github.com/cosaques/patterns/factory/factories"
 )
 
 type cheesePizza struct {

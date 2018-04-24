@@ -3,7 +3,7 @@ package pizzas
 import (
 	"fmt"
 
-	"github.com/cosaques/patterns/factory/src/ingredients"
+	"github.com/cosaques/patterns/factory/ingredients"
 )
 
 type Pizza interface {

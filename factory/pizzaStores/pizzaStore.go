@@ -1,6 +1,6 @@
 package pizzaStores
 
-import "github.com/cosaques/patterns/factory/src/pizzas"
+import "github.com/cosaques/patterns/factory/pizzas"
 
 type pizzaStore interface {
 	OrderPizza(name string)

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/cosaques/patterns/factory/src/pizzaStores"
+import "github.com/cosaques/patterns/factory/pizzaStores"
 
 func main() {
 	store1 := pizzaStores.NewNyPizzaStore()

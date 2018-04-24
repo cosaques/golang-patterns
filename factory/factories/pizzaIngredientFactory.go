@@ -1,6 +1,6 @@
 package factories
 
-import "github.com/cosaques/patterns/factory/src/ingredients"
+import "github.com/cosaques/patterns/factory/ingredients"
 
 type PizzaIngredientFactory interface {
 	CreateDough() ingredients.Dough

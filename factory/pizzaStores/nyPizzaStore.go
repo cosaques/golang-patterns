@@ -1,8 +1,8 @@
 package pizzaStores
 
 import (
-	"github.com/cosaques/patterns/factory/src/factories"
-	"github.com/cosaques/patterns/factory/src/pizzas"
+	"github.com/cosaques/patterns/factory/factories"
+	"github.com/cosaques/patterns/factory/pizzas"
 )
 
 type nyPizzaStore struct {
