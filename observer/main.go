@@ -1,6 +1,6 @@
 package main
 
-import observer "github.com/cosaques/patterns/observer/src"
+import observer "github.com/cosaques/patterns/observer/meteo"
 
 func main() {
 	weatherData := new(observer.WeatherData)

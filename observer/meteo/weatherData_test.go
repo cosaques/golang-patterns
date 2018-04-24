@@ -3,7 +3,7 @@ package observer
 import (
 	"testing"
 
-	"github.com/cosaques/patterns/observer/src/abstract"
+	"github.com/cosaques/patterns/observer/meteo/abstract"
 
 	"github.com/stretchr/testify/assert"
 )

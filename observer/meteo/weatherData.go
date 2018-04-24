@@ -1,6 +1,6 @@
 package observer
 
-import "github.com/cosaques/patterns/observer/src/abstract"
+import "github.com/cosaques/patterns/observer/meteo/abstract"
 
 type WeatherData struct {
 	temperature float32

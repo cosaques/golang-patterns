@@ -3,7 +3,7 @@ package observer
 import (
 	"fmt"
 
-	"github.com/cosaques/patterns/observer/src/abstract"
+	"github.com/cosaques/patterns/observer/meteo/abstract"
 )
 
 type CurrentConditionsDisplay struct {
