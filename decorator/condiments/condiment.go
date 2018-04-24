@@ -3,11 +3,11 @@ package condiments
 import (
 	"fmt"
 
-	decorator "github.com/cosaques/patterns/decorator/src"
+	"github.com/cosaques/patterns/decorator/beverages"
 )
 
 type condiment struct {
-	beverage    decorator.Beverage
+	beverage    beverages.Beverage
 	cost        int64
 	description string
 }

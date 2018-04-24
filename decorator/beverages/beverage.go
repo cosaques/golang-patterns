@@ -1,4 +1,4 @@
-package decorator
+package beverages
 
 type Beverage interface {
 	GetDescription() string
