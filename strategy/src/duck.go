@@ -5,36 +5,40 @@ import (
 )
 
 type Duck interface {
+	Swim()
 	Display()
 	PerformFly()
 }
 
-type abstractDuck struct {
-	Duck
+type baseDuck struct {
 	flyBehavior
 }
 
-func (d abstractDuck) Display() {
-	fmt.Println("I'm a duck !")
+func (d baseDuck) Swim() {
+	fmt.Println("Swimming...")
 }
-func (d abstractDuck) PerformFly() {
+func (d baseDuck) PerformFly() {
 	d.flyBehavior()
 }
 
-type MallardDuck struct{ abstractDuck }
+type MallardDuck struct{ baseDuck }
 
+func (d MallardDuck) Display() {
+	fmt.Println("I'm a MallardDuck !")
+}
 func NewMallardDuck() *MallardDuck {
-	d := MallardDuck{abstractDuck{}}
-	d.abstractDuck.Duck = d
-	d.abstractDuck.flyBehavior = simpleFly
+	d := MallardDuck{baseDuck{}}
+	d.baseDuck.flyBehavior = simpleFly
 	return &d
 }
 
-type RubberDuck struct{ abstractDuck }
+type RubberDuck struct{ baseDuck }
 
+func (d RubberDuck) Display() {
+	fmt.Println("I'm a RubberDuck !")
+}
 func NewRubberDuck() *RubberDuck {
-	d := RubberDuck{abstractDuck{}}
-	d.abstractDuck.Duck = d
-	d.abstractDuck.flyBehavior = noFly
+	d := RubberDuck{baseDuck{}}
+	d.baseDuck.flyBehavior = noFly
 	return &d
 }
