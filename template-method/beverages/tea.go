@@ -3,7 +3,7 @@ package beverages
 import "fmt"
 
 type tea struct {
-	*abstractBeverage
+	*baseBeverage
 }
 
 func (b *tea) brew() {
@@ -16,7 +16,7 @@ func (b *tea) addCondiments() {
 
 func NewTea() *tea {
 	result := tea{}
-	result.abstractBeverage = &abstractBeverage{&result}
+	result.baseBeverage = &baseBeverage{&result}
 
 	return &result
 }

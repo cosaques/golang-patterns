@@ -8,7 +8,7 @@ import (
 )
 
 type coffee struct {
-	*abstractBeverage
+	*baseBeverage
 }
 
 func (b *coffee) brew() {
@@ -38,6 +38,6 @@ func getUserInput() string {
 
 func NewCoffee() *coffee {
 	c := &coffee{}
-	c.abstractBeverage = &abstractBeverage{c}
+	c.baseBeverage = &baseBeverage{c}
 	return c
 }

@@ -4,34 +4,38 @@ import (
 	"fmt"
 )
 
-type beverage interface {
+type Beverage interface {
+	PrepareRecipe()
+}
+
+type subBeverage interface {
 	brew()
 	addCondiments()
 	customerWantsCondiments() bool
 }
 
-type abstractBeverage struct {
-	concreteBeverage beverage
+type baseBeverage struct {
+	sub subBeverage
 }
 
-func (b *abstractBeverage) PrepareRecipe() {
+func (b *baseBeverage) PrepareRecipe() {
 	b.boilWater()
-	b.concreteBeverage.brew()
+	b.sub.brew()
 	b.pourInCup()
-	if b.concreteBeverage.customerWantsCondiments() {
-		b.concreteBeverage.addCondiments()
+	if b.sub.customerWantsCondiments() {
+		b.sub.addCondiments()
 	}
 }
 
-func (b *abstractBeverage) boilWater() {
+func (b *baseBeverage) boilWater() {
 	fmt.Println("Boiling water...")
 }
 
-func (b *abstractBeverage) pourInCup() {
+func (b *baseBeverage) pourInCup() {
 	fmt.Println("Pouring in cups...")
 }
 
 // Hook method
-func (b *abstractBeverage) customerWantsCondiments() bool {
+func (b *baseBeverage) customerWantsCondiments() bool {
 	return true
 }
